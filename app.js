@@ -6,10 +6,6 @@ $(document).ready(function() {
 	$('#add-party').click(function(e){
 		var number = $('#number').val();
 		var name = $('#name').val();
-
-		console.log(number);
-		console.log(name);
-
 		$('#party').append(
 			"<h4>"+
 				name +
@@ -23,7 +19,6 @@ $(document).ready(function() {
 	$('#okay').click(function(e){
 		var number = $('#number').val();
 		var name = $('#name').val();
-		console.log(number,name);
 		$('#Waiting').append(
 		"<div class='Waitlist-Customer'>" +          
 			"<div class='table-number'>" +
