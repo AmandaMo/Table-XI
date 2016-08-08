@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+
+    <title>Table Management App</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="app.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div id="myModal" class="modal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">How many people are in their party?</h4>
+          </div>
+          <div class="modal-body">
+            <input type="number" name="number" id="number">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" href="#full">Find a Table</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="full" class="modal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Looks like we're full. Their estimated wait time is 15 minutes. Do they want to wait?</h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" >No</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" href="#add">Yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="add" class="modal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            Name: <input type="text" name="Name" id="name"> <br>
+            Preferences: <input type="text" name="preferences"> <br>
+            <p>How would they like to be contacted?</p>
+            <label class="radio-inline"><input type="radio" name="optradio">Phone</label>
+            <label class="radio-inline"><input type="radio" name="optradio">Text</label>
+            <label class="radio-inline"><input type="radio" name="optradio">In Person</label> <br>
+            Phone: <input type="number" name="phone" id="phone">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" href="#complete" id="add-party">Add to Waitlist</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="complete" class="modal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 id="party"></h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="okay">Okay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="Seated-modal" class="modal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4> Seat Smith party of 2 at Table C2</h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="Sat">Seated</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div id="navbar" class="navbar-collapse collapse">
+          <a class="Time">Sunday August 7th 5:45 PM</a>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="sidebar">
+      <ul class="nav nav-tabs" id="tabs">
+        <li class="active" id="full-width">
+          <a data-toggle="tab" href="#Waiting">Waiting <br>
+            <span class="tab-number">1</span>
+          </a>
+        </li>
+        <li id="full-width">
+          <a data-toggle="tab" href="#Reservations">Reservations <br>
+            <span class="tab-number">1</span>
+          </a>
+        </li>
+        <li id="full-width">
+          <a data-toggle="tab" href="#Seated">Seated <br>
+            <span class="tab-number">9</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="Waiting" class="tab-pane fade in active">
+          <div class="Waitlist-Customer" id="Waiting-ready">
+            <div class="table-number">  
+              <p>C2</p>
+            </div>
+            <div class="customer-info">
+              <p style="font-weight:bold">Smith</p>
+              <p>Party of 2</p>
+              <p>Arrived at 5:35</p>
+              <p>Wait Time - 10 min</p>
+            </div>
+            <button type="button" class="call-button" id="waiting-button">Call</button>
+          </div>
+        </div>
+
+        <div id="Reservations" class="tab-pane fade">
+          <div class="Reservation_Customer">
+            <div class="table-number">  
+              <p>C3</p>
+            </div>
+            <div class="customer-info">
+              <p style="font-weight:bold">Jones</p>
+              <p>Party of 2</p>
+              <p>6:00 PM</p>
+            </div>
+            <button type="button" class="call-button" disabled>Call</button>
+          </div>  
+        </div>
+
+        <div id="Seated" class="tab-pane fade">
+          <div Class="Seated_Customer">
+            <div class="table-number">  
+              <p>C1</p>
+            </div>
+            <div class="customer-info">
+              <p id="c-name">Customer Name</p>
+              <p>Party Size</p>
+              <p>Seated at time</p>
+            </div>
+          </div> 
+          <div Class="Seated_Customer">
+            <div class="table-number">  
+              <p>S1</p>
+            </div>
+            <div class="customer-info">
+              <p id="c-name">Customer Name</p>
+              <p>Party Size</p>
+              <p>Seated at time</p>
+            </div>
+          </div>  
+          <div Class="Seated_Customer">
+            <div class="table-number">  
+              <p>B3</p>
+            </div>
+            <div class="customer-info">
+              <p id="c-name">Customer Name</p>
+              <p>Party Size</p>
+              <p>Seated at time</p>
+            </div>
+          </div>  
+          <div Class="Seated_Customer">
+            <div class="table-number">  
+              <p>L1</p>
+            </div>
+            <div class="customer-info">
+              <p id="c-name">Customer Name</p>
+              <p>Party Size</p>
+              <p>Seated at time</p>
+            </div>
+          </div>  
+          <div Class="Seated_Customer">
+            <div class="table-number">  
+              <p>C4</p>
+            </div>
+            <div class="customer-info">
+              <p id="c-name">Customer Name</p>
+              <p>Party Size</p>
+              <p>Seated at time</p>
+            </div>
+          </div>  
+          <div Class="Seated_Customer">
+            <div class="table-number">  
+              <p>L2</p>
+            </div>
+            <div class="customer-info">
+              <p id="c-name">Customer Name</p>
+              <p>Party Size</p>
+              <p>Seated at time</p>
+            </div>
+          </div>  
+          <div Class="Seated_Customer">
+            <div class="table-number">  
+              <p>S2</p>
+            </div>
+            <div class="customer-info">
+              <p id="c-name">Customer Name</p>
+              <p>Party Size</p>
+              <p>Seated at time</p>
+            </div>
+          </div>  
+          <div Class="Seated_Customer">
+            <div class="table-number">  
+              <p>C5</p>
+            </div>
+            <div class="customer-info">
+              <p id="c-name">Customer Name</p>
+              <p>Party Size</p>
+              <p>Seated at time</p>
+            </div>
+          </div>  
+          <div Class="Seated_Customer">
+            <div class="table-number">  
+              <p>B2</p>
+            </div>
+            <div class="customer-info">
+              <p id="c-name">Customer Name</p>
+              <p>Party Size</p>
+              <p>Seated at time</p>
+            </div>
+          </div>   
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button type="button" class="reservation-button">New Reservation</button>
+        <button type="button" class="walkin-button" data-toggle="modal" data-target="#myModal">New Walk In</button>
+      </div>
+      
+    </div>
+
+    <div Class="Groundfloor">
+        <img src="Floorplan1.png" alt="Ground Floor Plan" style="width:width;height:height;" class="ground">
+        <img src="Floorplan2.png" alt="Ground Floor Plan" style="width:width;height:height;" class="ground2" display="none">
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

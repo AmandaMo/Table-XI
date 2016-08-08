@@ -1,0 +1,364 @@
+body {
+  padding-top: 50px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+/*Top navigation*/
+.navbar-fixed-top {
+  border: 0;
+  z-index: -1;
+  padding-left: 25em;
+  height: 4em;
+  background-color: #0c0c0c;
+}
+.navbar-collapse {
+  text-align:center;
+  vertical-align: middle;
+}
+
+.Time{
+  font-size: 18px;
+  line-height: 50px;
+  color: #ECECEC;
+}
+
+.navbar-nav {
+    display:inline-block;
+    float:none;
+    height: 4em;
+}
+
+
+/*Main content*/
+.main {
+  margin-left: 20%;
+  padding-top: 3em;
+  position: fixed;
+  width: 80%;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+  background-color: #000000;
+}
+
+/*Nav Tabs*/
+.sidebar {
+  width: 20%;
+  min-width: 300px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto; 
+  background-color: #f5f5f5;
+  border-right: 1px solid #eee;
+}
+.nav-tabs{
+  height: 5em;
+  display: block;
+  padding: 0;
+  margin:0;
+  min-width: 300px;
+}
+.nav-tabs > li > p {
+  display: inline;
+  padding-top: -8em;
+  line-height: 1px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.nav-tabs > li {
+  width: 33.33%;
+  text-align: center;
+  height: 5em;
+  background-color:#DBDBDB;
+  color: #292929;
+}
+.nav-tabs > li > a{
+  border-left-style: solid;
+  border-left-color: #707070;
+  border-radius: 0;
+  height: 5em;
+  color: #292929;
+}
+.nav-tabs > li > a:hover{
+    border: medium none;
+    border-radius: 0;
+    color:#fff;
+    height: 5em;
+    color: #292929;
+}
+#tabs{
+  position: fixed;
+  z-index: 10000;
+  width: 20%;
+}
+.tab-content{
+  min-width: 300px;
+  padding-top: 5em;
+  padding-bottom: 15em;
+}
+
+.tab-number{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/*Buttons*/
+.action-buttons{
+  position: fixed;
+  bottom:0;
+  left:0;
+  width: 20%;
+  min-width: 300px;
+}
+.reservation-button {
+  background: #9C9AFF;
+  background-image: -webkit-linear-gradient(top, #9C9AFF, #7C7BCC);
+  background-image: -moz-linear-gradient(top, #9C9AFF, #7C7BCC);
+  background-image: -ms-linear-gradient(top, #9C9AFF, #7C7BCC);
+  background-image: -o-linear-gradient(top, #9C9AFF, #7C7BCC);
+  background-image: linear-gradient(to bottom, #9C9AFF, #7C7BCC);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  color: #454572;
+  font-size: 18px;
+  font-weight: bold;
+  width: 50%;
+  height: 10em;
+  text-decoration: none;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  float: left;
+}
+.reservation-button:hover {
+  background: #CDCCFF;
+  background-image: -webkit-linear-gradient(top, #CDCCFF, #9C9AFF);
+  background-image: -moz-linear-gradient(top, #CDCCFF, #9C9AFF);
+  background-image: -ms-linear-gradient(top, #CDCCFF, #9C9AFF);
+  background-image: -o-linear-gradient(top, ##CDCCFF, #9C9AFF);
+  background-image: linear-gradient(to bottom, #CDCCFF, #9C9AFF);
+  text-decoration: none;
+}
+.walkin-button {
+  background: #BEF159;
+  background-image: -webkit-linear-gradient(top, #BEF159, #A1CD4B);
+  background-image: -moz-linear-gradient(top, #BEF159, #A1CD4B);
+  background-image: -ms-linear-gradient(top, #BEF159, #A1CD4B);
+  background-image: -o-linear-gradient(top, #BEF159, #A1CD4B);
+  background-image: linear-gradient(to bottom, #BEF159, #A1CD4B);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  color: #506625;
+  font-size: 18px;
+  font-weight: bold;
+  width: 50%;
+  height: 10em;
+  text-decoration: none;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  float: right;
+}
+.walkin-button:hover {
+  background: #DEF8AC;
+  background-image: -webkit-linear-gradient(top, #DEF8AC, #BEF159);
+  background-image: -moz-linear-gradient(top, #DEF8AC, #BEF159);
+  background-image: -ms-linear-gradient(top, #DEF8AC, #BEF159);
+  background-image: -o-linear-gradient(top, #DEF8AC, #BEF159);
+  background-image: linear-gradient(to bottom, #DEF8AC, #BEF159);
+  text-decoration: none;
+}
+.call-button{
+  position: absolute;
+  background: #BEF159;
+  background-image: -webkit-linear-gradient(top, #BEF159, #A1CD4B);
+  background-image: -moz-linear-gradient(top, #BEF159, #A1CD4B);
+  background-image: -ms-linear-gradient(top, #BEF159, #A1CD4B);
+  background-image: -o-linear-gradient(top, #BEF159, #A1CD4B);
+  background-image: linear-gradient(to bottom, #BEF159, #A1CD4B);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  color: #506625;
+  font-size: 14px;
+  font-weight: bolder;
+  width: 8em;
+  height: 115px;
+  text-decoration: none;
+  vertical-align: middle;
+  top:0;
+  right:0; 
+}
+
+.call-button:hover {
+  background: #DEF8AC;
+  background-image: -webkit-linear-gradient(top, #DEF8AC, #BEF159);
+  background-image: -moz-linear-gradient(top, #DEF8AC, #BEF159);
+  background-image: -ms-linear-gradient(top, #DEF8AC, #BEF159);
+  background-image: -o-linear-gradient(top, #DEF8AC, #BEF159);
+  background-image: linear-gradient(to bottom, #DEF8AC, #BEF159);
+  text-decoration: none;
+}
+
+.call-button:disabled {
+  background: #ABA9A9;
+  color: #565656;
+}
+
+/*Customer Info*/
+.Waitlist-Customer{
+    width: 100%;
+    padding-top: 2em;
+    padding-left: 2em;
+    padding-bottom: 1em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #B9C3D0;
+    position: relative;
+    display:inline-block;
+    background-color: #DBDBDB;
+}
+
+.table-number{
+  font-size: 42px;
+  font-weight: bold;
+  float: left;
+}
+
+.customer-info{
+  float: left;
+  text-align: left;
+  margin-left: 3em;
+  line-height: 8px;
+}
+.Reservation_Customer{
+    width: 100%;
+    padding-top: 30px;
+    padding-left: 2em;
+    padding-bottom: 1em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #B9C3D0;
+    position: relative;
+    display:inline-block; 
+    background-color: #DBDBDB;
+}
+.Seated_Customer{
+    width: 100%;
+    padding-top: 2em;
+    padding-left: 2em;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #B9C3D0;
+    position: relative;
+    display:inline-block; 
+    padding-bottom: 1em;
+    background-color: #DBDBDB;
+}
+#c-name{
+  font-weight: bold;
+}
+
+/*Floorplans*/
+.Groundfloor{
+  background-color: #252525;
+  right:0;
+  width: 80%;
+  position: fixed;
+  bottom:0;
+  top:4em;
+  border: none;
+  z-index: 0;
+}
+
+.ground{
+  display:block;
+  margin:auto;
+  border: none;
+  padding-left: 5%;
+  box-sizing: content-box;
+  padding-top: 0px;
+}
+
+.ground2{
+  margin:auto;
+  border: none;
+  padding-left: 5%;
+  box-sizing: content-box;
+  padding-top: 0px;
+}
+
+
+/* Modals*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#myModal{
+  z-index: 10000;
+}
+
+#full{
+  z-index: 10000;
+}
+
+#add{
+  z-index: 10000;
+}
+
+#complete{
+  z-index: 10000;
+}
+
+#Waiting-ready{
+  background-color:#DEF8AC;
+}
+
+#Seated-modal{
+  z-index: 10000;
+}
