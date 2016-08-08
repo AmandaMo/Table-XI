@@ -43,6 +43,11 @@ body {
     padding-left: 40px;
   }
 }
+
+@media (max-width: 1300px) {
+  body {zoom:67%;}
+}
+
 .main .page-header {
   margin-top: 0;
   background-color: #000000;
@@ -280,18 +285,21 @@ body {
   width: 80%;
   position: fixed;
   bottom:0;
-  top:4em;
+  top:1em;
   border: none;
-  z-index: 0;
+  z-index: -1000;
 }
 
 .ground{
   display:block;
   margin:auto;
   border: none;
+  width: 80%;
   padding-left: 5%;
   box-sizing: content-box;
   padding-top: 0px;
+  background-size: contain;
+  margin-bottom: 80em;
 }
 
 .ground2{
@@ -300,6 +308,7 @@ body {
   padding-left: 5%;
   box-sizing: content-box;
   padding-top: 0px;
+  width: 80%;
 }
 
 
