@@ -37,15 +37,13 @@ body {
   position: fixed;
   width: 80%;
 }
-@media (min-width: 768px) {
-  .main {
-    padding-right: 40px;
-    padding-left: 40px;
-  }
+
+@media (max-width:1300px) {
+  body {zoom:67%;}
 }
 
-@media (max-width: 1300px) {
-  body {zoom:67%;}
+@media (min-width: 1302px) and (max-width: 1800px) {
+  body {zoom:80%;}
 }
 
 .main .page-header {
